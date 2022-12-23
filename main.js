@@ -190,6 +190,34 @@ const timer = {
   function clickReStart(){
 
 
+      let progressBar = document.querySelector(".inner-most");
+
+      if (stateOfApp == "pomodoro"){
+      progressValue = 100
+        progressBar.style.background = `conic-gradient(
+          #F87070 ${progressValue * 3.6}deg,
+          #161932 ${progressValue * 3.6}deg
+      )`;
+    }else if (stateOfApp == "shortbreak"){
+        
+      
+        progressValue = 100
+        progressBar.style.background = `conic-gradient(
+          #F87070 ${progressValue * 3.6}deg,
+          #161932 ${progressValue * 3.6}deg
+      )`;
+        console.log(current_time)
+    }else if (stateOfApp == "longbreak"){
+        
+      progressValue = 100
+      progressBar.style.background = `conic-gradient(
+        #F87070 ${progressValue * 3.6}deg,
+        #161932 ${progressValue * 3.6}deg
+    )`;
+    }
+  
+
+
    changeTime(stateOfApp);
    clearInterval(intervalId);
 
