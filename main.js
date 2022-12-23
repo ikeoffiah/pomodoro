@@ -51,15 +51,32 @@ const timer = {
       currentActive.classList.remove("button");
       currentActive.classList.add("active");
 
+
+      //reset progress bar when tab is clicked
+      let progressBar = document.querySelector(".inner-most");
+
       if (stateOfApp == "pomodoro"){
-    
-        current_time = (pomodoro_time + 1)*60
+      progressValue = 100
+        progressBar.style.background = `conic-gradient(
+          #F87070 ${progressValue * 3.6}deg,
+          #161932 ${progressValue * 3.6}deg
+      )`;
     }else if (stateOfApp == "shortbreak"){
         
-        current_time = (shortbreak_time + 1)*60
+      
+        progressValue = 100
+        progressBar.style.background = `conic-gradient(
+          #F87070 ${progressValue * 3.6}deg,
+          #161932 ${progressValue * 3.6}deg
+      )`;
+        console.log(current_time)
     }else if (stateOfApp == "longbreak"){
         
-        current_time = (longbreak_time + 1)*60
+      progressValue = 100
+      progressBar.style.background = `conic-gradient(
+        #F87070 ${progressValue * 3.6}deg,
+        #161932 ${progressValue * 3.6}deg
+    )`;
     }
   
       changeTime(e.id);
@@ -112,6 +129,18 @@ const timer = {
   
       intervalId = setInterval(countTime, 1000);
     }
+
+
+    if (stateOfApp == "pomodoro"){
+    
+      current_time = (pomodoro_time + 1)*60
+  }else if (stateOfApp == "shortbreak"){
+      
+      current_time = (shortbreak_time + 1)*60
+  }else if (stateOfApp == "longbreak"){
+      
+      current_time = (longbreak_time + 1)*60
+  }
 
 
     var startbutton = document.getElementById("start");
@@ -190,7 +219,7 @@ let total_time;
     }
 
     let progressBar = document.querySelector(".inner-most");
-    let progressValue = ((current_time/total_time)*100);
+    let progressValue = (((current_time-1)/total_time)*100);
      
     console.log((current_time/total_time),"fgggg")
     progressBar.style.background = `conic-gradient(
@@ -200,6 +229,7 @@ let total_time;
 console.log(progressValue)
   if (count_seconds == 0) {
     if (count_min == 0) {
+      
       clearInterval(intervalId);
       var startbutton = document.getElementById("start");
       var pausebutton = document.getElementById("pause");
