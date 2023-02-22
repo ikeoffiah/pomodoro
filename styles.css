@@ -3,9 +3,15 @@
     src: url("./typefont/KumbhSans-Bold.ttf");
 }
 
+@font-face {
+    font-family: "RobotoSlab-Bold";
+    src: url("./typefont/roboto-slab/RobotoSlab-Bold.ttf");
+}
 
-
-
+@font-face {
+    font-family: "SpaceMono-Bold";
+    src: url("./typefont/space-mono/SpaceMono-Bold.ttf");
+}
 
 
 
@@ -17,7 +23,9 @@
     --text-color-white: #ffffff;
     --orange-color: #F87070;
     --shaded-text: #D7E0FF;
+    --font-family: "KumbhSans-Bold"
 }
+
 
 
 /* General */
@@ -38,7 +46,7 @@ body{
 
 
 .pomdoro-title{
-    font-family: "KumbhSans-Bold";
+    font-family: var(--font-family);
     font-size: 32px;
     color: var(--text-color-white);
 }
@@ -61,7 +69,7 @@ body{
     width: 120px;
     height: 48px;
     background-color: var(--orange-color);
-    font-family: "KumbhSans-Bold";
+    font-family: var(--font-family);
     border-radius: 26.5px;
     color: var(--primary-color);
     border:none;
@@ -72,7 +80,7 @@ body{
     height: 48px;
     
     border: none;
-    font-family: "KumbhSans-Bold";
+    font-family: var(--font-family);
     color: var(--shaded-text);
     background: none;
 }
@@ -130,7 +138,7 @@ align-items: center;
 
 
 .sub-text{
-    font-family: "KumbhSans-Bold";
+    font-family: var(--font-family);
     font-size: 16px;
     color: var(--shaded-text);
     letter-spacing: 15px;
@@ -142,10 +150,330 @@ align-items: center;
 
 .clock{
     display: flex;
-    font-family: "KumbhSans-Bold";
+    font-family: var(--font-family);
     font-size: 100px;
     color: var(--shaded-text);
     letter-spacing: -5px;
     text-align: center;
+}
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #ffffff;
+    border-radius: 25px;
+    margin: 15% auto;
+    width: 540px;
+    height: 490px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 0.4s;
+  }
+  
+  @keyframes modalopen {
+    from {
+      top: -300px;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.modal-head-section{
+
+display: flex;
+justify-content: space-between;
+padding-top: 30px;
+padding-bottom: 30px;
+padding-left: 40px;
+padding-right: 40px;
+}
+
+.modal-title{
+    font-size: 28px;
+    color: var(--secondary-color);
+    font-family: var(--font-family);
+}
+
+.divide{
+    display: flex;
+    width: 100%;
+    height: 1px;
+    background-color: var(--shaded-text);
+}
+
+.model-settings{
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 20px;
+}
+
+.time{
+    font-family: var(--font-family);
+    letter-spacing: 5px;
+    font-size: 13px;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.time-setting{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+}
+
+.time-set{
+    width: 140px;
+}
+
+.modal-button{
+    display: flex;
+    position: relative;
+    bottom: -26.5px;
+    justify-content: center;
+    align-items: center;
+}
+.modal-button button {
+    width: 140px;
+    height: 53px;
+    border-radius: 26.5px;
+    border: none;
+    background-color: #F87070;
+    color: #ffffff;
+}
+
+.time-input{
+    width: 140px;
+    height: 48px;
+    border: none;
+    background-color: var(--shaded-text);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.setting-name{
+    font-size: 12px;
+    font-family: var(--font-family);
+    margin-bottom: 20px;
+}
+
+.font-section{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.color-section{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    
+    align-items: center;
+}
+
+.font-text{
+    font-family: var(--font-family);
+    letter-spacing: 5px;
+    font-size: 13px;
+    color: var(--secondary-color);
+}
+
+.color-text{
+    font-family: var(--font-family);
+    letter-spacing: 5px;
+    font-size: 13px;
+    color: var(--secondary-color);
+}
+
+.font-setting{
+    display: flex;
+    justify-content: space-between;
+    width: 152px;
+}
+
+.color-setting{
+    display: flex;
+    justify-content: space-between;
+    width: 152px;
+}
+
+.font-change{
+    font-size: 15;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--shaded-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.font-active{
+    font-size: 15;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color-change{
+    font-size: 15;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: var(--shaded-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+
+
+
+.color-active{
+    
+    font-size: 15;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: var(--shaded-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.color-active::before {
+    content: '\2713'; 
+  }
+
+
+.color-orange{
+    background-color: #F87070;
+}
+
+.color-green{
+    background-color: #70F3F8;
+}
+
+.color-purple{
+    background-color: #D881F8;
+}
+
+.RobotoSlab-class{
+    font-family: "RobotoSlab-Bold";
+}
+
+.KumbhSans-class{
+    font-family: "KumbhSans-Bold";
+}
+
+.SpaceMono-class{
+    font-family: "SpaceMono-Bold";
+}
+
+
+
+
+
+@media only screen and (max-width: 1200px) {
+
+    .progress-bar{
+        height: 300px;
+        width: 300px;
+    }
+
+    .inner-bar{
+        height: 248.05px;
+        width: 248.05px;
+    }
+
+    .inner-most{
+        height: 221.05px;
+        width: 221.05px;
+    border-radius: 50%;
+    background-color: var(--orange-color); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+
+.inside{
+    height: 194.05px;
+    width: 194.05px;
+}
+
+.clock{
+    font-size: 70px;
+}
+
+.sub-text{
+    font-size: 12px;
+}
+
+.promodoro-buttons{
+    width: 327px;
+    
+}
+
+.modal-content{
+    width: 327px;
+    height: 575px;
+}
+
+.time-setting{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.time-set{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.setting-name{
+    margin-right: 30px;
+}
+
 }
 

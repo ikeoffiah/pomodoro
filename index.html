@@ -1,46 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  <link rel="stylesheet" href="./styles.css">
-  <title>Frontend Mentor | Pomodoro app</title>
-</head>
-<body>
-  <div class="container">
-    <div class="main">
-      <div class="pomdoro-title">promodoro</div>
-      <div class="promodoro-buttons">
-        <button class="pomodoro active" id="pomodoro"  data-mode="pomodoro" onclick="change(this)">pomodoro</button>
-        <button class="shortbreak button" id="shortbreak" name="shortbreak" onclick="change(this)">short break</button>
-        <button class="longbreak button" id="longbreak" data-mode="longbreak" onclick="change(this)">long break</button>
-      </div>
-      <div class="outside-progressbar">
-        <div class="progress-bar">
-          <div class="inner-bar">
-            <div class="inner-most">
-              <div class="inside">
-                <div class="clock">
-                  <span id="min">25</span>
-                  <span id="seperator">:</span>
-                  <span id="sec">00</span>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Pomodoro app</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        <div class="pomdoro-title">promodoro</div>
+        <div class="promodoro-buttons">
+          <button
+            class="pomodoro active"
+            id="pomodoro"
+            data-mode="pomodoro"
+            onclick="change(this)"
+          >
+            pomodoro
+          </button>
+          <button
+            class="shortbreak button"
+            id="shortbreak"
+            name="shortbreak"
+            onclick="change(this)"
+          >
+            short break
+          </button>
+          <button
+            class="longbreak button"
+            id="longbreak"
+            data-mode="longbreak"
+            onclick="change(this)"
+          >
+            long break
+          </button>
+        </div>
+        <div class="outside-progressbar">
+          <div class="progress-bar">
+            <div class="inner-bar">
+              <div class="inner-most">
+                <div class="inside">
+                  <div class="clock">
+                    <span id="min" class="min"></span>
+                    <span id="seperator">:</span>
+                    <span id="sec">00</span>
+                  </div>
+                  <button class="sub-text" onclick="clickStart()" id="start">
+                    START
+                  </button>
+                  <button
+                    class="sub-text closed"
+                    onclick="clickPause()"
+                    id="pause"
+                  >
+                    PAUSE
+                  </button>
+                  <button
+                    class="sub-text closed"
+                    onclick="clickContinue()"
+                    id="continue"
+                  >
+                    CONTINUE
+                  </button>
+                  <button
+                    class="sub-text closed"
+                    onclick="clickReStart()"
+                    id="restart"
+                  >
+                    RESTART
+                  </button>
                 </div>
-                <button class="sub-text" onclick="clickStart()" id="start">START</button>
-                <button class="sub-text closed" onclick="clickPause()" id="pause">PAUSE</button>
-                <button class="sub-text closed" onclick="clickContinue()" id="continue">CONTINUE</button>
-                <button class="sub-text closed" onclick="clickReStart()" id="restart">RESTART</button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="settings">
-        <img src="./assets/icon-settings.svg" alt="settings-icon" />
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <div class="modal-head-section">
+              <div class="modal-title">Settings</div>
+              <span class="close">&times;</span>
+            </div>
+            <div class="divide"></div>
+            <div class="model-settings">
+              <div class="time">TIME (MINUTES)</div>
+
+              <div class="time-setting">
+                <div class="time-pomodoro time-set">
+                  <div class="setting-name">pomodoro</div>
+                  <div >
+                    <input
+                    type="number"
+                    id="pomodoro-setting"
+                    class="time-input"
+                    placeholder="25"
+                  
+                  />
+                  </div>
+                </div>
+
+                <div class="time-set time-shortbreak">
+                  <div class="setting-name">shortbreak</div>
+                  <div >
+                    <input
+                    type="number"
+                    id="shortbreak-setting"
+                    class="time-input"
+                    placeholder="15"
+                    
+                  />
+                  </div>
+                </div>
+                <div class="time-set time-longbreak">
+                  <div class="setting-name">longbreak</div>
+                 <div> <input
+                  type="number"
+                  id="longbreak-setting"
+                  class="time-input"
+                  placeholder="5"
+                  
+                /></div>
+                </div>
+              </div>
+              <div class="divide"></div>
+              <div class="font-section">
+                <div class="font-text">FONT</div>
+                <div class="font-setting">
+                  <button class="font-active KumbhSans-class" id="KumbhSans" onclick="changeFont(this)">Aa</button>
+                  <button class="font-change RobotoSlab-class" id="RobotoSlab" onclick="changeFont(this)">Aa</button>
+                  <button class="font-change SpaceMono-class" id="SpaceMono" onclick="changeFont(this)">Aa</button>
+                </div>
+              </div>
+              <div class="divide"></div>
+
+              <div class="color-section">
+                <div class="color-text">COLOR</div>
+                <div class="color-setting">
+                  <button class="color-active  color-orange" id="orange"onclick="changeColor(this)"></button>
+                  <button class="color-change color-green" id="green" onclick="changeColor(this)"></button>
+                  <button class="color-change color-purple" id="purple" onclick="changeColor(this)"></button>
+                </div>
+              </div>
+
+              
+            </div>
+            <div class="modal-button"><button onclick="applyChange()">Apply</button></div>
+            
+          </div>
+        </div>
+        <div class="settings" id="openModal">
+          <img src="./assets/icon-settings.svg" alt="settings-icon" />
+        </div>
       </div>
     </div>
-  </div>
-  <script src="./main.js"></script>
-</body>
+    <script src="./main.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  </body>
 </html>
